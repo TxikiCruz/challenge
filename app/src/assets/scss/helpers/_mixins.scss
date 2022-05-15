@@ -1,0 +1,42 @@
+// Columns & gutter
+$numCols: 12;
+$numGutter: 10;
+
+@mixin cols($cols) {
+  width: percentage(calc($cols / $numCols));
+  padding-left: $numGutter * .1rem;
+  padding-right: $numGutter * .1rem;
+}
+
+@mixin colsNoGutter($cols) {
+  width: percentage(calc($cols / $numCols));
+}
+
+@mixin colsOffset($cols) {
+  margin-left: percentage(calc($cols / $numCols));
+}
+
+
+// center
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  @else if $xy == x {
+    position: absolute;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  @else if $xy == y {
+    position: absolute;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}
